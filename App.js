@@ -10,6 +10,7 @@ import SignInScreen from "./containers/SignInScreen";
 import SignUpScreen from "./containers/SignUpScreen";
 import SettingsScreen from "./containers/SettingsScreen";
 import SplashScreen from "./containers/SplashScreen";
+import { View, Text, Image } from "react-native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -93,13 +94,29 @@ export default function App() {
                   }}
                 >
                   {() => (
-                    <Stack.Navigator>
+                    <Stack.Navigator
+                      screenOptions={{
+                        headerTitle: () => (
+                          <Image
+                            source={{
+                              uri: "https://seeklogo.com/images/A/airbnb-logo-7F4086530F-seeklogo.com.png",
+                            }}
+                            style={{ width: 30, height: 30 }}
+                          />
+                        ),
+                        headerTitleContainerStyle: {
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginLeft: -30, // ajustez selon vos besoins
+                        },
+                      }}
+                    >
                       <Stack.Screen
                         name="Home"
                         options={{
-                          title: "My App",
-                          headerStyle: { backgroundColor: "red" },
-                          headerTitleStyle: { color: "white" },
+                          title: "Logo air Bnb",
+                          headerStyle: { backgroundColor: "white" },
+                          headerTitleStyle: { color: "coral" },
                         }}
                       >
                         {() => <HomeScreen />}
