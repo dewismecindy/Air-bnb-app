@@ -10,7 +10,6 @@ import SignInScreen from "./containers/SignInScreen";
 import SignUpScreen from "./containers/SignUpScreen";
 import SettingsScreen from "./containers/SettingsScreen";
 import SplashScreen from "./containers/SplashScreen";
-import { View, Text, Image } from "react-native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -52,18 +51,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Tab1">
-          {() => (
-            <Stack.Navigator>
-              <Stack.Screem name="Home" component={HomeScreen} />
-              <Stack.Screem name="Profile" component={ProfileScreen} />
-            </Stack.Navigator>
-          )}
-        </Tab.Screen>
-        <Tab.Screen name="Tab2" component={SettingsScreen}></Tab.Screen>
-      </Tab.Navigator>
-      {/* <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator>
         {userToken === null ? (
           // No token found, user isn't signed in
           <>
@@ -105,29 +93,13 @@ export default function App() {
                   }}
                 >
                   {() => (
-                    <Stack.Navigator
-                      screenOptions={{
-                        headerTitle: () => (
-                          <Image
-                            source={{
-                              uri: "http://crapaudvoyageur.com/wp-content/uploads/2019/11/airbnb-vector-png-airbnb-logo-airbnb-logo-877.png",
-                            }}
-                            style={{ width: 30, height: 30 }}
-                          />
-                        ),
-                        headerTitleContainerStyle: {
-                          alignItems: "center",
-                          justifyContent: "center",
-                          marginLeft: -30, // ajustez selon vos besoins
-                        },
-                      }}
-                    >
+                    <Stack.Navigator>
                       <Stack.Screen
                         name="Home"
                         options={{
-                          title: "Logo air Bnb",
-                          headerStyle: { backgroundColor: "white" },
-                          headerTitleStyle: { color: "coral" },
+                          title: "My App",
+                          headerStyle: { backgroundColor: "red" },
+                          headerTitleStyle: { color: "white" },
                         }}
                       >
                         {() => <HomeScreen />}
@@ -137,7 +109,6 @@ export default function App() {
                         name="Profile"
                         options={{
                           title: "User Profile",
-                          headerBackTitleVisible: false,
                         }}
                       >
                         {() => <ProfileScreen />}
@@ -175,7 +146,7 @@ export default function App() {
             )}
           </Stack.Screen>
         )}
-      </Stack.Navigator> */}
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
