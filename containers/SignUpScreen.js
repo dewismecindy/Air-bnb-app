@@ -29,6 +29,9 @@ export default function SignUpScreen({ setToken, navigation }) {
           );
 
           console.log("response>>", data);
+          if (response.data.token) {
+            setToken(response.data.token);
+          }
           alert(data.token);
         } catch (error) {
           console.log("catch>>", error.response.data);

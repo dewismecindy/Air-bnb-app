@@ -10,6 +10,7 @@ import SignInScreen from "./containers/SignInScreen";
 import SignUpScreen from "./containers/SignUpScreen";
 import SettingsScreen from "./containers/SettingsScreen";
 import SplashScreen from "./containers/SplashScreen";
+import LogoHeader from "./components/LogoHeader";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -97,9 +98,10 @@ export default function App() {
                       <Stack.Screen
                         name="Home"
                         options={{
-                          title: "My App",
+                          /*  title: "My App",
                           headerStyle: { backgroundColor: "red" },
-                          headerTitleStyle: { color: "white" },
+                          headerTitleStyle: { color: "white" }, */
+                          headerTitle: () => <LogoHeader />,
                         }}
                       >
                         {() => <HomeScreen />}
